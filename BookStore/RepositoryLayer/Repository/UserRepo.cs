@@ -92,7 +92,7 @@ namespace RepositoryLayer.Repository
                 connection.Open();
                 int i = cmd.ExecuteNonQuery();
                 connection.Close();
-                if (i >= 1)
+                if (i <=1)
                     return registrationModel;
                 else
                     return null;

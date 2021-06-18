@@ -23,6 +23,7 @@ namespace BookStore.Controllers
 
         public ActionResult Login()
         {
+            ViewBag.xyz = "Success";
             return View();
         }
         [HttpPost]
@@ -37,7 +38,7 @@ namespace BookStore.Controllers
             }
             catch (Exception)
             {
-                return ViewBag.Message = "User registration unsuccessfull";
+                return ViewBag.Message = "Unsuccessfull";
             }
         }
         [HttpPost]
