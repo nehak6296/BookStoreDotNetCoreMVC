@@ -30,6 +30,10 @@ namespace BookStore
             services.AddControllersWithViews();
             services.AddTransient<IUserManager, UserManager>();
             services.AddTransient<IUserRepo, UserRepo>();
+
+            services.AddTransient<IBookManager, BookManager>();
+            services.AddTransient<IBookRepo, BookRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
