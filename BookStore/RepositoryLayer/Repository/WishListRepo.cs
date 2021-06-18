@@ -9,7 +9,7 @@ using System.Text;
 
 namespace RepositoryLayer.Repository
 {
-    class WishListRepo : IWishListRepo
+    public class WishListRepo : IWishListRepo
     {
         private SqlConnection connection;
         private readonly IConfiguration configuration;

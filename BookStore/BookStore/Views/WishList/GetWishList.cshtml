@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ModelsLayer.GetWishList>
+
+<body>
+    <div>
+        <div class="box">
+            <h2 class="text1">Bookstore</h2>
+        </div>
+        <div class="card">
+            <div class="cart_container">
+                <h1>My WishList(@Model.Sum(b => b.WishListQuantity))</h1>
+                @foreach (var items in Model)
+                {
+                    <div class="card_getcart">
+                        <div class="getcart_field">
+                            <img src="@Url.Content(@items.Image)" alt="Image" class="book_image" />
+                        </div>
+                        <div class="container_getcart">
+                            <div class="getcart_field">
+                                @items.BookName
+                            </div>
+                            <div class="getcart_field text_size">
+                                By @items.Author
+                            </div>
+                            <div class="getcart_field">
+                                Rs.@items.Price
+                            </div>
+                        </div>
+                        <div>
+                            <input type="button" value="Remove" id="remove-@items.WishListId" class="btn-wishlist" onclick="Remove_WishList(@items.WishListId)">
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
