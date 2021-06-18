@@ -18,13 +18,7 @@ namespace RepositoryLayer.Repository
         public UserRepo(IConfiguration configuration)
         {
             this.configuration = configuration;
-        }
-        //private void Connection()
-        //{
-        //    string connectionString = Configuration.ConnectionStrings["UserDbConnection"].ConnectionString;
-        //    connection = new SqlConnection(connectionString);
-
-        //}
+        }        
         private void Connection()
         {
             try

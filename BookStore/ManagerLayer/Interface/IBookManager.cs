@@ -1,10 +1,12 @@
-﻿using System;
+﻿using ModelsLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ManagerLayer.Interface
 {
-    class IBookManager
+    public interface IBookManager
     {
+        List<Books> GetAllBooks();       
     }
 }

@@ -33,7 +33,7 @@ namespace BookStore.Controllers
             {
                 var result = this.userManager.RegisterUser(register);
                 ViewBag.Message = "User registered successfully";
-                // return View();
+                
                 return RedirectToAction("Login");
             }
             catch (Exception)

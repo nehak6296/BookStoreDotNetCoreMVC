@@ -1,10 +1,13 @@
-﻿using System;
+﻿using ModelsLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RepositoryLayer.Interface
 {
-    class IBookRepo
-    {
+    public interface IBookRepo
+    {       
+        List<Books> GetAllBooks();
     }
+
 }
