@@ -1,10 +1,14 @@
-﻿using System;
+﻿using ModelsLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ManagerLayer.Interface
 {
-    class ICartManager
-    {
+    public interface ICartManager
+    {       
+        List<GetCart> GetCart();
+
     }
+
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using ModelsLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RepositoryLayer.Interface
 {
-    class ICartRepo
+    public interface ICartRepo
     {
+        List<GetCart> GetCart();
     }
 }

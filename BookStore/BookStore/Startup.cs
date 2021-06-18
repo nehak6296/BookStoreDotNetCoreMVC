@@ -34,6 +34,9 @@ namespace BookStore
             services.AddTransient<IBookManager, BookManager>();
             services.AddTransient<IBookRepo, BookRepo>();
 
+            services.AddTransient<ICartManager, CartManager>();
+            services.AddTransient<ICartRepo, CartRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

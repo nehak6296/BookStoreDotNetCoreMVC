@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ManagerLayer.Interface;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,24 @@ namespace BookStore.Controllers
 {
     public class CartController : Controller
     {
-        public IActionResult Index()
+        private readonly ICartManager cartManager;
+        public CartController(ICartManager cartManager)
         {
-            return View();
+            this.cartManager = cartManager;
+        }
+        //GET: Cart       
+        [HttpGet]
+        public ActionResult GetCart()
+        {
+            try
+            {
+                var result = this.cartManager.GetCart();               
+                return View(result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
