@@ -8,9 +8,27 @@ namespace BookStore.Controllers
 {
     public class WishListController : Controller
     {
-        public IActionResult Index()
+        private readonly IWishListManager wishListManager;
+        public WishListController(IWishListManager wishListManager)
         {
-            return View();
+            this.wishListManager = wishListManager;
         }
+        // GET: WishList
+
+        [HttpGet]
+        public ActionResult GetWishList()
+        {
+            try
+            {
+                var result = this.wishListManager.GetWishList();
+                ViewBag.Message = "";
+                return View(result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

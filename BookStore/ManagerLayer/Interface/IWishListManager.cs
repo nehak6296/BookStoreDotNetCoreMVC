@@ -1,10 +1,12 @@
-﻿using System;
+﻿using ModelsLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ManagerLayer.Interface
 {
-    class IWishListManager
-    {
+    public interface IWishListManager
+    {        
+        List<GetWishList> GetWishList();
     }
 }
