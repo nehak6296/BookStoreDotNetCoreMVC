@@ -28,5 +28,28 @@ namespace BookStore.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [HttpPost]
+        public ActionResult RemoveFromCart(int cartId)
+        {
+            try
+            {
+                var result = this.cartManager.RemoveFromCart(cartId);
+                if (result > 0)
+                {
+                    //return View();
+                    return Json(new { status = true, Message = "Book removed from cart", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Failed to Remove", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+
+            }
+        }
     }
 }

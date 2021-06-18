@@ -23,13 +23,13 @@
                 </form>
             </div>
             <h2 class="login">Booklist</h2>
-            @if (User.Identity.IsAuthenticated)
+            @*@if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("Admin"))
                 {
                     <input type="button" value="ADD NEW BOOK" class="btn-danger" id="addBtn" onclick="showForm()">
                 }
-            }
+            }*@
             <div class="container card_container" id="whole">
 
                 @foreach (var items in Model)
@@ -59,7 +59,7 @@
                                 </div>
                                 <input type="button" value="wISHLISTED" class="btn-primary" id="addedWishListBtn-@items.BookId">
                             </div>
-                            <div>
+                            @*<div>
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     if (User.IsInRole("Admin"))
@@ -67,7 +67,7 @@
                                         <input type="button" value="DELETE" class="btn-danger" id="deleteBtn-@items.BookId" onclick="DeleteBook(@items.BookId)">
                                     }
                                 }
-                            </div>
+                            </div>*@
                         </div>
                     </div>
 

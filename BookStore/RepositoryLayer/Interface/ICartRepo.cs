@@ -8,5 +8,6 @@ namespace RepositoryLayer.Interface
     public interface ICartRepo
     {
         List<GetCart> GetCart();
+        int RemoveFromCart(int cartId);
     }
 }
