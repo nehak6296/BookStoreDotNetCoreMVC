@@ -1,10 +1,13 @@
-﻿using System;
+﻿using ModelsLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RepositoryLayer.Interface
 {
-    class IUserRepo
+    public interface IUserRepo
     {
+        bool LoginUser(Login loginModel);
+        Register RegisterUser(Register registrationModel);
     }
 }
