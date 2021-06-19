@@ -8,6 +8,7 @@ namespace ManagerLayer.Interface
     public interface ICartManager
     {       
         List<GetCart> GetCart();
+        Cart AddToCart(Cart cartModel);
         int RemoveFromCart(int cartId);
 
     }

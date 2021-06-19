@@ -19,6 +19,10 @@ namespace ManagerLayer.Manager
         {
             return this.cartRepo.GetCart();
         }
+        public Cart AddToCart(Cart cartModel)
+        {
+            return this.cartRepo.AddToCart(cartModel);
+        }
         public int RemoveFromCart(int cartId)
         {
             return this.cartRepo.RemoveFromCart(cartId);

@@ -61,22 +61,23 @@ namespace RepositoryLayer.Repository
             }
             return CartList;
         }
-        public int RemoveFromCart(int cartId)
+        public Cart AddToCart(Cart cartModel)
         {
             try
             {
                 Connection();
-                SqlCommand cmd = new SqlCommand("sp_RemoveFromCart", connection);
+                SqlCommand cmd = new SqlCommand("sp_AddToCart", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@CartId", cartId);
-                // cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@BookId", cartModel.BookId);
+                cmd.Parameters.AddWithValue("@UserId", cartModel.UserId);
+                cmd.Parameters.AddWithValue("@CartBookQuantity", cartModel.CartBookQuantity);
                 connection.Open();
                 int i = cmd.ExecuteNonQuery();
-                connection.Close();
+
                 if (i >= 1)
-                    return 1;
+                    return cartModel;
                 else
-                    return 0;
+                    return null;
             }
             catch (Exception ex)
             {
@@ -87,5 +88,6 @@ namespace RepositoryLayer.Repository
                 connection.Close();
             }
         }
+      
     }
 }

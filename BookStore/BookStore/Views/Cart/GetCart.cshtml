@@ -7,6 +7,7 @@
     </div>
     <div class="card">
         <div class="cart_container">
+            <script src="~/js/GetCart.js"></script>
             <h1>
                 My Cart(@Model.Sum(b => b.CartBookQuantity))
             </h1>
@@ -33,7 +34,8 @@
                     <button class="decrease" onclick="decrement()">-</button>
                     <input id=demoInput type=number min=0 max=50>
                     <button class="increase" onclick="increment()">+</button>
-                    <input type="button" value="Remove" id="remove-@items.CartId" onclick="location.href='@Url.Action("RemoveFromCart","Cart")'" class="btn_remove_Cart">
+                    <input type="button" value="Remove" id="remove-@items.CartId" onclick="return Remove_Cart(@items.CartId)" class="btn_remove_Cart" />
+                   @* <input type="button" value="Remove" id="remove-@items.CartId" onclick="location.href='@Url.Action("RemoveFromCart","Cart",new{ CartId = @items.CartId})%>'"  class="btn_remove_Cart" />*@
                 </div>
             }
             <input type="button" value="PLACE ORDER" id="placeid" class="place-btn" onclick="place_order()">

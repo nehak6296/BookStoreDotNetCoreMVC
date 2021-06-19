@@ -1,5 +1,6 @@
 ﻿using ManagerLayer.Interface;
 using Microsoft.AspNetCore.Mvc;
+using ModelsLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,28 +29,28 @@ namespace BookStore.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
         [HttpPost]
-        public ActionResult RemoveFromCart(int cartId)
+        public JsonResult AddToCart([FromBody]Cart cart)
         {
             try
             {
-                var result = this.cartManager.RemoveFromCart(cartId);
-                if (result > 0)
+                var result = this.cartManager.AddToCart(cart);
+                if (result != null)
                 {
-                    //return View();
-                    return Json(new { status = true, Message = "Book removed from cart", Data = result });
+                    return Json(new { status = true, Message = "Book added to cart", Data = result });
                 }
                 else
                 {
-                    return Json(new { status = false, Message = "Failed to Remove", Data = result });
+                    return Json(new { status = false, Message = "Book not added to cart", Data = result });
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
-
+                return ViewBag.Message = "sucessfully";
             }
         }
+
+
+       
     }
 }
