@@ -61,6 +61,32 @@ namespace RepositoryLayer.Repository
             }
             return wishList;
         }
-
+        public WishList AddToWishList(WishList wishList)
+        {
+            try
+            {
+                Connection();
+                SqlCommand cmd = new SqlCommand("sp_AddToWishList", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@BookId", wishList.BookId);
+                cmd.Parameters.AddWithValue("@UserId", wishList.UserId);
+                cmd.Parameters.AddWithValue("@Quantity", wishList.WishListQuantity);
+                connection.Open();
+                int i = cmd.ExecuteNonQuery();
+                //connection.Close();
+                if (i >= 1)
+                    return wishList;
+                else
+                    return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

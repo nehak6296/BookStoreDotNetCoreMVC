@@ -1,5 +1,6 @@
 ﻿using ManagerLayer.Interface;
 using Microsoft.AspNetCore.Mvc;
+using ModelsLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,25 @@ namespace BookStore.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
-
+        [HttpPost]
+        public JsonResult AddToWishList([FromBody]WishList wishList)
+        {
+            try
+            {
+                var result = this.wishListManager.AddToWishList(wishList);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "Book added to wishList", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Book not added to wishList", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);                
+            }
+        }
     }
 }

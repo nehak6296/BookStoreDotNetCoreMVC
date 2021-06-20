@@ -8,5 +8,6 @@ namespace RepositoryLayer.Interface
     public interface IWishListRepo
     {
         List<GetWishList> GetWishList();
+        WishList AddToWishList(WishList wishList);
     }
 }

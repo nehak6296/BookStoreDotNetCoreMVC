@@ -8,5 +8,6 @@ namespace ManagerLayer.Interface
     public interface IWishListManager
     {        
         List<GetWishList> GetWishList();
+        WishList AddToWishList(WishList wishList);
     }
 }
