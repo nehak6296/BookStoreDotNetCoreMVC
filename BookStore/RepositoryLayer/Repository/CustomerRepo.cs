@@ -71,6 +71,39 @@ namespace RepositoryLayer.Repository
                 throw new Exception(ex.Message);
             }
         }
+        public Customer AddCustomerDetails(Customer customer)
+        {
+            try
+            {
+                Connection();
+                SqlCommand cmd = new SqlCommand("sp_AddCustomerDetails", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserId", 1);
+                cmd.Parameters.AddWithValue("@Name", customer.Name);
+                cmd.Parameters.AddWithValue("@PhoneNumber", customer.PhoneNumber);
+                cmd.Parameters.AddWithValue("@Address", customer.Address);
+                cmd.Parameters.AddWithValue("@City", customer.City);
+                cmd.Parameters.AddWithValue("@Locality", customer.Locality);
+                cmd.Parameters.AddWithValue("@Landmark", customer.Landmark);
+                cmd.Parameters.AddWithValue("@Pincode", customer.Pincode);
+                cmd.Parameters.AddWithValue("@Type", customer.Type);
+                connection.Open();
+                int i = cmd.ExecuteNonQuery();
+                connection.Close();
+                if (i >= 1)
+                    return customer;
+                else
+                    return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
     }
 }

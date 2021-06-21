@@ -18,5 +18,9 @@ namespace ManagerLayer.Manager
         {
             return this.customerRepo.GetAllCustomerDetails(userId);
         }
+        public Customer AddCustomerDetails(Customer customer)
+        {
+            return this.customerRepo.AddCustomerDetails(customer);
+        }
     }
 }

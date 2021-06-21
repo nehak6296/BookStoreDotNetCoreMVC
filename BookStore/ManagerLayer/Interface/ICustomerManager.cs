@@ -8,5 +8,7 @@ namespace ManagerLayer.Interface
     public interface ICustomerManager
     {       
         List<Customer> GetAllCustomerDetails(int userId);
+        Customer AddCustomerDetails(Customer customer);
+
     }
 }
