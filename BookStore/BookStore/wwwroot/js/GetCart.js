@@ -28,3 +28,34 @@ function Remove_Cart(CartId) {
         }
     });
 }
+var customerList;
+function getCustomers() {
+    var customers = {};
+    var userId = 1;
+    //int userId = ;
+    //console.log(JSON.stringify(customers));
+    $.ajax({
+        type: "GET",
+        url: 'https://localhost:44309/Customer/GetAllCustomerDetails?UserId=1',
+        //  data: userId,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            console.log("response=" + response);
+            customerList = response.Data;
+            //continue_order()
+        },
+        error: function () {
+            alert("Error while getting customer details");
+        }
+    });
+}
+
+function place_order() {
+    getCustomers();
+    var place_order = document.getElementById('placeid');
+    place_order.style.display = "none";
+
+    var form_name = document.getElementById('form-div-cart');
+    form_name.style.display = "block";
+}
