@@ -14,6 +14,7 @@ namespace BookStore.Controllers
         {
             this.customerManager = customerManager;
         }
+        
         [HttpGet]
         public ActionResult GetAllCustomerDetails(int userId)
         {

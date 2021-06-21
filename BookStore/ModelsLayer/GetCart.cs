@@ -6,7 +6,7 @@ namespace ModelsLayer
 {
     public class GetCart
     {
-        public int CartId { get; set; }
+        public int CartId { get; set; }       
         public int BookId { get; set; }
         public int UserId { get; set; }
         public int CartBookQuantity { get; set; }

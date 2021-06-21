@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<ModelsLayer.GetCart>
+﻿@model IEnumerable<ModelsLayer.GetCart>
 
 <div>
     <div class="box">
@@ -35,9 +34,11 @@
                     <input id=demoInput type=number min=0 max=50>
                     <button class="increase" onclick="increment()">+</button>
                     <input type="button" value="Remove" id="remove-@items.CartId" onclick="return Remove_Cart(@items.CartId)" class="btn_remove_Cart" />
-                   @* <input type="button" value="Remove" id="remove-@items.CartId" onclick="location.href='@Url.Action("RemoveFromCart","Cart",new{ CartId = @items.CartId})%>'"  class="btn_remove_Cart" />*@
+                    @* <input type="button" value="Remove" id="remove-@items.CartId" onclick="location.href='@Url.Action("RemoveFromCart","Cart",new{ CartId = @items.CartId})%>'"  class="btn_remove_Cart" />*@
                 </div>
             }
+            @*@{bool isUserConnected = string.IsNullOrEmpty(Model.UserId);}*@
+
             <input type="button" value="PLACE ORDER" id="placeid" class="place-btn" onclick="place_order()">
         </div>
         <div class="cart_container">
@@ -83,7 +84,6 @@
                                 <label for="Work">Work</label><br>
                                 <input type="radio" id="Other" name="type" value="Other">
                                 <label for="Other">Other</label>
-
                             </div>
                         </div>
                         <div class="continue">

@@ -36,7 +36,7 @@ function getCustomers() {
     //console.log(JSON.stringify(customers));
     $.ajax({
         type: "GET",
-        url: 'https://localhost:44309/Customer/GetAllCustomerDetails?UserId=1',
+        url: 'https://localhost:44309/Customer/GetAllCustomerDetails?UserId=' + userId,
         //  data: userId,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -46,11 +46,10 @@ function getCustomers() {
             //continue_order()
         },
         error: function () {
-            alert("Error while getting customer details");
+            alert("Error while inserting data");
         }
     });
 }
-
 function place_order() {
     getCustomers();
     var place_order = document.getElementById('placeid');

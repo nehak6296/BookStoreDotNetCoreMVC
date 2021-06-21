@@ -40,6 +40,9 @@ namespace BookStore
             services.AddTransient<IWishListManager, WishListManager>();
             services.AddTransient<IWishListRepo, WishListRepo>();
 
+            services.AddTransient<ICustomerManager, CustomerManager>();
+            services.AddTransient<ICustomerRepo, CustomerRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
