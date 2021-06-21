@@ -23,6 +23,11 @@ namespace ManagerLayer.Manager
         {
             return this.wishListRepo.AddToWishList(wishList);
         }
+        public int RemoveFromWishList(int wishListId)
+        {
+            return this.wishListRepo.RemoveFromWishList(wishListId);
+
+        }
 
     }
 }

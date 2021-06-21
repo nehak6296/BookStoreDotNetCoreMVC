@@ -88,5 +88,30 @@ namespace RepositoryLayer.Repository
                 connection.Close();
             }
         }
+        public int RemoveFromWishList(int wishListId)
+        {
+            try
+            {
+                Connection();
+                SqlCommand cmd = new SqlCommand("sp_RemoveFromWishList", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@WishListId", wishListId);
+                connection.Open();
+                int i = cmd.ExecuteNonQuery();
+                connection.Close();
+                if (i >= 1)
+                    return 1;
+                else
+                    return 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

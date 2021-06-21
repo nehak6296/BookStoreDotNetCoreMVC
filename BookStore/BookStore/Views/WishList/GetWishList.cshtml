@@ -5,6 +5,7 @@
         <div class="box">
             <h2 class="text1">Bookstore</h2>
         </div>
+        <script src="~/js/GetWishList.js"></script>
         <div class="card">
             <div class="cart_container">
                 <h1>My WishList(@Model.Sum(b => b.WishListQuantity))</h1>
@@ -26,7 +27,7 @@
                             </div>
                         </div>
                         <div>
-                            <input type="button" value="Remove" id="remove-@items.WishListId" class="btn-wishlist" onclick="Remove_WishList(@items.WishListId)">
+                            <input type="button" value="Remove" id="remove-@items.WishListId" class="btn-danger" onclick="Remove_WishList(@items.WishListId)">
                         </div>
                     </div>
                 }

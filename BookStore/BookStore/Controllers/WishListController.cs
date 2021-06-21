@@ -51,5 +51,25 @@ namespace BookStore.Controllers
                 throw new Exception(ex.Message);                
             }
         }
+        [HttpPost]
+        public JsonResult RemoveFromWishList([FromBody]int wishListId)
+        {
+            try
+            {
+                var result = this.wishListManager.RemoveFromWishList(wishListId);
+                if (result > 0)
+                {
+                    return Json(new { status = true, Message = "Book removed from wishList", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "can't remove from wishList", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
