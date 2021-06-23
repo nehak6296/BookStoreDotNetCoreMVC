@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using ModelsLayer;
 using RepositoryLayer.Interface;
 using System;
@@ -72,6 +75,42 @@ namespace RepositoryLayer.Repository
                 connection.Close();
             }
         }
+        public bool UploadImage(int BookId, IFormFile image)
+        {
+            Connection();
+            SqlCommand cmd = new SqlCommand("sp_AddImage", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@BookId", BookId);
+            Account account = new Account(
+                                 this.configuration["CloudinaryAccount:CloudName"],
+                                 this.configuration["CloudinaryAccount:ApiKey"],
+                                 this.configuration["CloudinaryAccount:ApiSecret"]
+                             );
+            var path = image.OpenReadStream();
+            Cloudinary cloudinary = new Cloudinary(account);
+            ImageUploadParams uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(image.FileName, path)
+            };
+            var uploadResult = cloudinary.Upload(uploadParams);
+            string Image = uploadResult.Url.ToString();           
+            cmd.Parameters.AddWithValue("@Image", Image);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i >= 1)
+                return true;
 
+            else
+                return false;
+
+
+           
+        }
+
+        public bool UploadImage(int BookId, string image)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

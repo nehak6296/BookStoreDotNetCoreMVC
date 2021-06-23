@@ -1,4 +1,5 @@
 ﻿using ManagerLayer.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelsLayer;
 using System;
@@ -36,6 +37,27 @@ namespace BookStore.Controllers
             }
         }
 
+        [HttpPost]       
+        public IActionResult UploadImage(int BookId, IFormFile image)
+        {
+            try
+            {
+                //var imageUpload = CloudImageLink(image);
+                bool result = this.booksManager.UploadImage(BookId, image);
+                if (result == true)
+                {
+                    return Json(new { status = true, Message = "Image added ", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "image not added " });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
     }
 }

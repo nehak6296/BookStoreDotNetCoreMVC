@@ -1,4 +1,5 @@
 ﻿using ManagerLayer.Interface;
+using Microsoft.AspNetCore.Http;
 using ModelsLayer;
 using RepositoryLayer.Interface;
 using System;
@@ -18,6 +19,11 @@ namespace ManagerLayer.Manager
         public List<Books> GetAllBooks()
         {
             return this.bookRepository.GetAllBooks();
+        }
+
+        public bool UploadImage(int BookId, IFormFile image)
+        {
+            return this.bookRepository.UploadImage(BookId, image);
         }
     }
 }
