@@ -22,5 +22,9 @@ namespace ManagerLayer.Manager
         {
             return this.customerRepo.AddCustomerDetails(customer);
         }
+        public Customer UpdateCustomerDetails(Customer customer)
+        {
+            return this.customerRepo.UpdateCustomerDetails(customer);
+        }
     }
 }

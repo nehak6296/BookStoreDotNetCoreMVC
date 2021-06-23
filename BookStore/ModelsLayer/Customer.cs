@@ -8,14 +8,10 @@ namespace ModelsLayer
     public class Customer
     {
         [Key]
-        [Required]
-        public int CustomerId { get; set; }
-        [Required]
-        public int UserId { get; set; }
-        [Required]
+        [Required] 
         public string Name { get; set; }
         [Required]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         [Required]
         public string Address { get; set; }
         public string Locality { get; set; }

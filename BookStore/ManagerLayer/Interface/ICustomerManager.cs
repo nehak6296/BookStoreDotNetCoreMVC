@@ -9,6 +9,7 @@ namespace ManagerLayer.Interface
     {       
         List<Customer> GetAllCustomerDetails(int userId);
         Customer AddCustomerDetails(Customer customer);
+        Customer UpdateCustomerDetails(Customer customer);
 
     }
 }

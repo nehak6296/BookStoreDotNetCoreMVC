@@ -37,11 +37,31 @@ namespace BookStore.Controllers
             }
         }
         [HttpPost]
-        public JsonResult AddCustomerDetails(Customer customer)
+        public ActionResult AddCustomerDetails(Customer customerObject)
         {
             try
             {
-                var result = this.customerManager.AddCustomerDetails(customer);
+                var result = this.customerManager.AddCustomerDetails(customerObject);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "Customer added..!!!", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Customer not added...!!", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);                
+            }
+        }
+        [HttpPost]
+        public JsonResult UpdateCustomerDetails(Customer customer)
+        {
+            try
+            {
+                var result = this.customerManager.UpdateCustomerDetails(customer);
                 if (result != null)
                 {
                     return Json(new { status = true, Message = "Customer added..!!!", Data = result });
