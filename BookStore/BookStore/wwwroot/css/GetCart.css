@@ -148,3 +148,25 @@ h3 {
     background-color: #2877d3;
     border-radius: 2px;
 }
+.order-img {
+    margin-top: 5%;
+    width: 20vw;
+    height: 25vh;
+    margin-bottom: 5%;
+}
+.order-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.continue-btn {
+    display: flex;
+    flex-wrap: wrap;   
+    padding-top: -1px;    
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    flex-direction: column;   
+    color: white;
+    background-color: #2877d3;   
+}

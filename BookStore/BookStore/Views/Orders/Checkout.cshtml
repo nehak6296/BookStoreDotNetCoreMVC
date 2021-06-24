@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+}
+<div class="box">
+    <h2 class="text1">Bookstore</h2>
+</div>
+<div class="order-div">
+    <img src="~/Images/order.png" class="order-img" />
+    <h1>Order Placed Successfully</h1>
+    <span>hurry! your order is confired..</span><br>
+    <span> the order id is #123456</span><br>
+    <span>save the order id for further communication </span><br>
+    <input type="button" value="CONTINUE SHOPPING" onclick="location.href = '@Url.Action("GetAllBooks","Books")'" class="continue-btn"/>
+</div>

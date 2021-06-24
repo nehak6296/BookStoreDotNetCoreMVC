@@ -36,3 +36,20 @@ function place_order() {
     form_name.style.display = "block";
 }
 
+function checkout() {
+    var requestObject = {};
+    requestObject.CartId = 35;
+    requestObject.UserId = 1;
+    $.ajax({
+        type: "POST",
+        url: 'https://localhost:44309/Orders/Checkout',
+        data: JSON.stringify(requestObject),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success:
+            console.log("OrderPlaced"),
+        error: function () {
+            alert("Error ");
+        }
+    });
+}

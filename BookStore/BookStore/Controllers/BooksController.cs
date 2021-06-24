@@ -17,13 +17,13 @@ namespace BookStore.Controllers
             this.booksManager = booksManager;
         }
         //GET: Books
-        public ActionResult GetAllBooks()
-        {
-            return View();
-        }
+        //public ActionResult GetAllBooks()
+        //{
+        //    return View();
+        //}
         
         [HttpGet]
-        public ActionResult GetAllBooks(Books book)
+        public ActionResult GetAllBooks()
         {
             try
             {

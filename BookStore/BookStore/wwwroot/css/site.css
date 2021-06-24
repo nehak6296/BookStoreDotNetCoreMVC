@@ -175,6 +175,12 @@ a {
     border-radius:3px;
 }
 
+.login-btn {
+    display: flex;   
+    color: white;
+    background-color: #2877d3;
+    border-radius: 2px;
+}
 .input-field {
     display: block;
     width: 100%;
