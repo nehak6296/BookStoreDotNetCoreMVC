@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class CartController : Controller
     {
         private readonly ICartManager cartManager;

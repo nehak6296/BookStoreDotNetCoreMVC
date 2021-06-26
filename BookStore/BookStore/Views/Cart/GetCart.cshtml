@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="continue">
-                            <input type="button" value="CONTINUE" id="cont-id" class="continue-btn"  >
+                            <input type="button" value="CONTINUE" id="cont-id" class="continue-btn">
                         </div>
                     </form>
 
@@ -118,7 +118,7 @@
                     </div>
                 }
                 @*<input type="button" value="CHECKOUT" id="checkout-btn"  onclick="location.href='@Url.Action("Checkout","Orders")'">*@
-                <input type="button" value="CHECKOUT" id="checkout-btn"  onclick="checkout()">
+                <input type="button" value="CHECKOUT" id="checkout-btn" onclick="Checkout()">
             </div>
         </div>
     </div>
@@ -135,16 +135,38 @@
                 });
             });
         });
-        $(function () {
-            $('#checkout-btn').on('click', function (evt) {
-                evt.preventDefault();
-                $.post('https://localhost:44309/Orders/Checkout', $('form').serialize(), function () {
-                    /*$.post('https://localhost:44309/')*/
+        //$(function () {
+        //    $('#checkout-btn').on('click', function (evt) {
+        //        evt.preventDefault();
+        //        $.post('https://localhost:44309/Orders/Checkout', $('form').serialize(), function () {
+        //            /*$.post('https://localhost:44309/')*/
 
+        //        });
+        //    });
+        //});
+    </script>
+    @*<script type="text/javascript">
+        $(function () {
+            var requestObject = {};
+            requestObject.CartId = 38;
+            requestObject.UserId = 1;
+            $("#checkout-btn").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "https://localhost:44309/Orders/Checkout",
+                    data: JSON.stringify(requestObject),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response == true) {
+                            alert("You will now be redirected.");
+                            window.location = "https://localhost:44309/Orders/Checkout";
+                        }
+                    }
                 });
             });
         });
-    </script>
+    </script>*@
 
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

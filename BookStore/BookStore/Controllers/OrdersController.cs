@@ -15,21 +15,22 @@ namespace BookStore.Controllers
         {
             this.ordersManager = ordersManager;
         }
-        // GET: Orders
+        //GET: Orders
         public ActionResult Checkout()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Checkout(Orders orders)
+        public ActionResult Checkout([FromBody]Orders orders)
         {
             try
             {
                 var result = this.ordersManager.Checkout(orders);                
                 if (result!=null)
                 {
-                    return View(result);
+                    return View();
+
                 }
                 return ViewBag.Message = "Null";
 
@@ -39,6 +40,23 @@ namespace BookStore.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        //[HttpPost]
+        //public ActionResult Checkout([FromBody] Orders orders)
+        //{
+        //    try
+        //    {
+        //        var result = this.ordersManager.Checkout(orders);
+        //        if (result != null)
+        //        {
+        //            return View(result);
+        //        }
+        //        return ViewBag.Message = "Null";
 
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
     }
 }

@@ -38,7 +38,7 @@ namespace BookStore.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Login login,string returnUrl)
+        public ActionResult Login(Login login)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace BookStore.Controllers
 
                     var Login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    return Redirect(jwtToken);
+                    return RedirectToAction("GetAllBooks","Books");
                 }
                 else
                 {
